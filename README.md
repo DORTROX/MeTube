@@ -11,6 +11,6 @@ I was just bored asf
 * Open command prompt/terminal
 * paste "python3 ./Down.py"
 
-#Features
+# Features
 * Donwload Video's with upto 720p resolution
 * Download audio's with upto 160kbps bit rate 
