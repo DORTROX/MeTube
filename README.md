@@ -12,5 +12,5 @@ I was just bored asf
 * paste "python3 ./Down.py"
 
 # Features
-* Donwload Video's with upto 720p resolution
+* Download Video's with upto 720p resolution
 * Download audio's with upto 160kbps bit rate 
