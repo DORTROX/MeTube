@@ -7,10 +7,10 @@ A simple YouTube video downloading tool
 I was just bored asf
 
 # How to run
-* Run ```pip install pytube```
+* Run `pip install pytube`
 * Go to your directory 
 * Open command prompt/terminal
-* paste "python3 ./Down.py"
+* paste `python3 ./Down.py`
 
 # Features
 * Download Video's with upto 720p resolution
