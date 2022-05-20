@@ -100,7 +100,7 @@ while True:
         print("Successfully downloaded")
         while True:
             try:
-                loop = input("Want to download next song?\n[y/n]: ").lower()
+                loop = input("Want to download next Video/Audio?\n[y/n]: ").lower()
                 if loop == "n" or loop == "y":
                     break
                 print("Invalid input!")
