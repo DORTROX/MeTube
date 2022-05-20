@@ -25,7 +25,7 @@ while True:
                 print(e)
 
         while video_audio == 1:
-            contentV = yt.streams.filter(file_extension='mp4')
+            contentV = yt.streams.filter(progressive=True)
             i = 0
             for avail in contentV:
                 i+=1
