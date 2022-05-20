@@ -2,7 +2,6 @@ from pytube import YouTube
 import os
 from os import system, name
 
-# https://youtu.be/n78Gg6_zEQg
 while True:
     try:
         print("""
@@ -14,6 +13,7 @@ while True:
         ╚═╝     ╚═╝╚══════╝   ╚═╝    ╚═════╝ ╚═════╝ ╚══════╝      ╚═══╝   ╚═════╝ ╚═╝╚═╝
                                 Dev : D O R T R O 乂\n\n""")
         link = input('Paste youtube video video link:\n')
+        yt = YouTube(link)
 
         while True:
             try:
@@ -25,44 +25,69 @@ while True:
                 print(e)
 
         while video_audio == 1:
+            contentV = yt.streams.filter(file_extension='mp4')
+            i = 0
+            for avail in contentV:
+                i+=1
+                print(f"Press {i} for {avail.resolution}")
+
             destination = "./Video Downloads"
             try:
-                quality = int(input("Press 1 for 720p\nPress 2 for 480p\nPress 3 for 360p\nPress 4 for 144p\n"))
-                if quality <= 4 and quality > 0:
-                    if quality == 1:
-                        tag = 136
-                        break
-                    elif quality == 2:
-                        tag = 135
-                        break
-                    elif quality == 3:
-                        tag = 134
-                        break
-                    elif quality == 4:
-                        tag = 160
-                        break
-                print("Invalid input.")
+                quality = int(input("Enter No.: "))
+                if i ==  2:
+                    if quality <= i and quality > 0:
+                        if quality == 1:
+                            tag = contentV[0].itag
+                            break
+                        elif quality == 2:
+                            tag = contentV[1].itag
+                            break
+                    print("Invalid")
+                else:
+                    if quality <= i and quality > 0:
+                        if quality == 1:
+                            tag = contentV[0].itag
+                            break
+                        elif quality == 2:
+                            tag = contentV[1].itag
+                            break
+                        elif quality == 3:
+                            tag = contentV[2].itag
+                            break
+                    print("Invalid")
             except Exception as e:
                 print(e)
 
         while video_audio == 2:
+            contentA = yt.streams.filter(only_audio=True)
+
+            i = 0
+            for avail in contentA:
+                i+=1
+                print(f"Press {i} for {avail.abr}")
             destination = "./Audio Downloads"
             try:
-                quality = int(input("Press 1 for 120kbps\nPress 2 for 160kbps\n"))
-                if quality <= 4 and quality > 0:
+                quality = int(input("Enter No.: "))
+                if quality <= i and quality > 0:
                     if quality == 1:
-                        tag = 140
+                        tag = contentA[0].itag
                         break
                     elif quality == 2:
-                        tag = 251
+                        tag = contentA[1].itag
+                        break
+                    elif quality == 3:
+                        tag = contentA[2].itag
+                        break
+                    elif quality == 4:
+                        tag = contentA[3].itag
+                        break
+                    elif quality == 5:
+                        tag = contentA[4].itag
                         break
                 print("Invalid input.")
             except Exception as e:
                 print(e)
 
-        print(f"tag {tag}")    
-
-        yt = YouTube(link)
         print(f"Downloading : {yt.title}\nwill be added shortly...")
         stream = yt.streams.get_by_itag(tag)
         ogdes = stream.download(output_path=destination)
