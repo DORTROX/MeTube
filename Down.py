@@ -30,12 +30,14 @@ while True:
             try:
                 print("Found Playlist\n")
                 destination = input("Enter a name for the playlist : ")
+                print("Downloading your Playlist for you be patient\n")
                 cwd = os.getcwd()
                 target_dir = cwd +'/' + destination;
                 os.mkdir(target_dir)
                 p = Playlist(link)
                 for url in p.video_urls:
                     playlistSongs(url, './' + destination)
+                print("Download Complete!")
             except Exception as e:
                 print(e)
         else:
