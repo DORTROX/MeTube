@@ -14,4 +14,5 @@ I was just bored asf
 
 # Features
 * Download Video's with upto 720p resolution
-* Download audio's with upto 160kbps bit rate 
+* Download audio's with upto 160kbps bit rate
+* Auto Detects playlist to download 

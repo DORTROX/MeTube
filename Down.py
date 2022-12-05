@@ -12,7 +12,7 @@ def playlistSongs (url, destination):
         newdes = base + '.mp3'
         os.rename(ogdes, newdes)
     except Exception as e:
-        print(e, "Func err")
+        print(e)
 
 
 while True:
@@ -29,14 +29,15 @@ while True:
         if "playlist?list=" in link:
             try:
                 print("Found Playlist\n")
-                destination = input("Enter a name for the playlist")
-                # os.mkdir("./", destination)
-                destination = "./Audio Downloads"
+                destination = input("Enter a name for the playlist : ")
+                cwd = os.getcwd()
+                target_dir = cwd +'/' + destination;
+                os.mkdir(target_dir)
                 p = Playlist(link)
                 for url in p.video_urls:
-                    playlistSongs(url, destination)
+                    playlistSongs(url, './' + destination)
             except Exception as e:
-                print(e,'loop in err')
+                print(e)
         else:
             yt = YouTube(link)
             while True:
